@@ -1,0 +1,6 @@
+
+export(PVD)
+export(Ep)
+export(Tp)
+export(Vp)
+importFrom(PearsonDS,ppearsonIII)

@@ -1,0 +1,14 @@
+Package: CAP
+Type: Package
+Title: A fast computational procedure to detect the genetic pleiotropy effect for multiple variants
+Version: 0.1.0
+Author: Luobin Zhang
+Maintainer: Luobin Zhang <502979740@qq.com>
+Description:  It can test the association between multiple phenotypes and diverse genotypes in terms of testing the pleiotropic genetic effects with high efficiency and sufficient sensitivity.
+License: GPL
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.0
+Depends: R(>= 4.3.0)
+Suggest: roxygen2
+Imports: PearsonDS
