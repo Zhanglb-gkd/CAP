@@ -1,8 +1,8 @@
-#' Ep calculates the expectation of tr(AB) based on a permutation test
+#' Ep calculates the expectation of tr(A\%*\%B) based on a permutation test
 #'
 #' @param A a centralized and symmetric matrix with nrow(A)>1
 #' @param B a centralized and symmetric matrix with the same dimension as A
-#' @return the expectation of tr(AB) based on a permutation test
+#' @return the expectation of tr(A\%*\%B) based on a permutation test
 #' @export
 Ep <- function(A, B){
   j = sum(diag(A))
@@ -13,11 +13,11 @@ Ep <- function(A, B){
 }
 
 
-#' Vp calculates the variance of tr(AB) based on a permutation test
+#' Vp calculates the variance of tr(A\%*\%B) based on a permutation test
 #'
 #' @param A a centralized and symmetric matrix with nrow(A)>3
 #' @param B a centralized and symmetric matrix with the same dimension as A
-#' @return the variance of tr(AB) based on a permutation test
+#' @return the variance of tr(A\%*\%B) based on a permutation test
 #' @export
 Vp <- function(A, B){
   n = nrow(A)
@@ -36,11 +36,11 @@ Vp <- function(A, B){
 }
 
 
-#' Tp calculates the third moment of tr(AB) based on a permutation test
+#' Tp calculates the third moment of tr(A\%*\%B) based on a permutation test
 #'
 #' @param A a centralized and symmetric matrix with nrow(A)>5
 #' @param B a centralized and symmetric matrix with the same dimension as A
-#' @return the third moment of tr(A%*%B) based on a permutation test
+#' @return the third moment of tr(A\%*\%B) based on a permutation test
 #' @export
 Tp <- function(A, B){
   n = nrow(A)
@@ -87,6 +87,28 @@ Tp <- function(A, B){
 #' @return the p value for the fast method
 #' @export
 #' @importFrom PearsonDS ppearsonIII
+#' @examples
+#' library(MASS)
+#' n = 100
+#' m1 = 10
+#' m2 = 10
+#' betax = matrix(rnorm(m1*m2,0,1),m1,m2)
+#' x = mvrnorm(n, rep(0,m1), diag(m1))
+#' y = x\%*\%betax + mvrnorm(n, rep(0,m2), diag(m2))
+#' f <- function(x){
+#'   n = nrow(x)
+#'   m = ncol(x)
+#'   M = matrix(NA, nrow = n, ncol = n)
+#'   for(i in 1:n){
+#'     for(j in 1:n){
+#'       M[i,j]=(sum(2-abs(x[i,]-x[j,])))/(2*m)
+#'     }
+#'   }
+#'   return(M)
+#' }
+#' G = f(x)
+#' E = f(y)
+#' PVD(G, E)
 PVD <- function(G,E){
   n = nrow(G)
   mr = nrow(E)

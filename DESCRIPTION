@@ -11,4 +11,4 @@ LazyData: true
 RoxygenNote: 7.3.0
 Depends: R(>= 4.3.0)
 Suggest: roxygen2
-Imports: PearsonDS
+Imports: PearsonDS, MASS

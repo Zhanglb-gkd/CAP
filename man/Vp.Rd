@@ -1,6 +1,6 @@
 \name{Vp}
 \alias{Vp}
-\title{Vp calculates the variance of tr(AB) based on a permutation test}
+\title{Vp calculates the variance of tr(A\%*\%B) based on a permutation test}
 \usage{
 Vp(A, B)
 }
@@ -10,8 +10,8 @@ Vp(A, B)
 \item{B}{a centralized and symmetric matrix with the same dimension as A}
 }
 \value{
-the variance of tr(AB) based on a permutation test
+the variance of tr(A\%*\%B) based on a permutation test
 }
 \description{
-Vp calculates the variance of tr(AB) based on a permutation test
+Vp calculates the variance of tr(A\%*\%B) based on a permutation test
 }
